@@ -12,6 +12,6 @@
   },
   "include": [
     "src", 
-    "action-history.js"],
+    "action2.js"],
   "exclude": ["node_modules"]
 }
