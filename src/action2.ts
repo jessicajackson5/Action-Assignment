@@ -105,6 +105,47 @@ class AccionActualizacionPerfil extends Accion{
       
 }
 
+class AccionCompra extends Accion{
+    productos: string[]
+    total: number
+
+    constructor(
+        descripcion: string, 
+        fecha: Date, 
+        productos: string[],
+        total: number
+    ) {
+        super(descripcion, fecha)
+        this.productos = productos
+        this.total = total
+    }
+
+    mostrarDetalle(): void{
+        console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha.toISOString()}, productos: [${this.productos.join(", ")}], total: $${this.total}`)
+    }
+}
+
+class AccionEnvioMensaje extends Accion {
+    destinatario: string
+    mensaje: string
+
+    constructor(
+        descripcion: string, 
+        fecha: Date, 
+        destinatario: string, 
+        mensaje: string
+    ) {
+        super(descripcion, fecha)
+        this.destinatario = destinatario
+        this.mensaje = mensaje
+    }
+
+    mostrarDetalle(): void {
+        console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha.toISOString()}, destinatario: ${this.destinatario}, mensaje: "${this.mensaje}"`)
+    }
+}
+
+
 /* Test code */
 const inicio = new AccionInicioSesion("Session started", new Date("2025-04-12T09:00:00"), "Laptop")
 inicio.mostrarDetalle()
@@ -114,7 +155,14 @@ cierre.mostrarDetalle()
 
 const cambio1 = new Cambio("my_new_email@gmail.com", "my_old_email@yahoo.com")
 const cambio2 = new Cambio("1234", "9383")
+cambio1.mostrarCambio()
 
 const actualizacion = new AccionActualizacionPerfil("Usuario actualizó su perfil", new Date("2025-04-12T12:00:00"), [cambio1, cambio2])
 actualizacion.mostrarDetalle()
+
+const compra = new AccionCompra("Usuario compró algo", new Date("2025-04-12T13:00:00"), ["Laptop", "Ratón"], 1500)
+compra.mostrarDetalle()
+
+const mensaje = new AccionEnvioMensaje("Usuario envió un mensaje", new Date("2024-08-31T13:00:00Z"), "admin@example.com", "Hola, necesito ayuda con mi cuenta.")
+mensaje.mostrarDetalle()
 
