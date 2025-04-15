@@ -1,12 +1,12 @@
 {
   "name": "clase-6-typescript",
   "version": "1.0.0",
-  "description": "Action  Homework",
+  "description": "Action Assignment",
   "main": "action2.js",
   "scripts": {
     "build": "tsc",
-    "dev": "node action2.js", 
-    "start": "node action2.js"
+    "dev": "ts-node-dev --respawn src/action2.ts", 
+    "start": "node dist/action2.js"
   },
   "keywords": [],
   "author": "",

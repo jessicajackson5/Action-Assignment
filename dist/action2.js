@@ -20,7 +20,7 @@ class AccionInicioSesion extends Accion {
     }
     mostrarDetalle() {
         if (this.descripcion.trim() !== "") {
-            console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha}, dispositivo_origen: ${this.dispositivo_origen}`);
+            console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha.toISOString()}, dispositivo_origen: ${this.dispositivo_origen}`);
         }
         else {
             return;
@@ -36,7 +36,7 @@ class AccionCierreSesion extends Accion {
     }
     mostrarDetalle() {
         if (this.descripcion.trim() !== "") {
-            console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha}, tiempo_de_sesion: ${this.tiempo_de_sesion}, dispositivo_origen: ${this.dispositivo_origen}`);
+            console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha.toISOString()}, tiempo_de_sesion: ${this.tiempo_de_sesion}, dispositivo_origen: ${this.dispositivo_origen}`);
         }
         else {
             return;
