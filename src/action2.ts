@@ -112,6 +112,6 @@ inicio.mostrarDetalle()
 const cierre = new AccionCierreSesion("Session ended", new Date("2025-04-12T11:15:00"), "Laptop", inicio)
 cierre.mostrarDetalle()
 
-const cambio1 = newCambio("my_new_email@gmail.com", "my_old_email@yahoo.com")
-const cambio2 = newCambio("1234", "9383")
+const cambio1 = new Cambio("my_new_email@gmail.com", "my_old_email@yahoo.com")
+const cambio2 = new Cambio("1234", "9383")
 

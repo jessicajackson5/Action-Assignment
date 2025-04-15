@@ -43,8 +43,30 @@ class AccionCierreSesion extends Accion {
         }
     }
 }
+class Cambio {
+    constructor(valor_anterior, nuevo_valor) {
+        this.id_cambio = randomIDStr();
+        this.valor_anterior = valor_anterior;
+        this.nuevo_valor = nuevo_valor;
+    }
+    mostrarCambio() {
+        console.log(`id_cambio: ${this.id_cambio}, valor_anterior: ${this.valor_anterior}, nuevo_valor: ${this.nuevo_valor}`);
+    }
+}
+class AccionActualizacionPerfil extends Accion {
+    constructor(descripcion, fecha, cambios = []) {
+        super(descripcion, fecha);
+        this.cambios = cambios;
+    }
+    mostrarDetalle() {
+        console.log(`id: ${this.id}, descripcion: ${this.descripcion}, fecha: ${this.fecha.toISOString()}, cambios:`);
+        this.cambios.forEach(cambio => cambio.mostrarCambio());
+    }
+}
 /* Test code */
 const inicio = new AccionInicioSesion("Session started", new Date("2025-04-12T09:00:00"), "Laptop");
 inicio.mostrarDetalle();
 const cierre = new AccionCierreSesion("Session ended", new Date("2025-04-12T11:15:00"), "Laptop", inicio);
 cierre.mostrarDetalle();
+const cambio1 = newCambio("my_new_email@gmail.com", "my_old_email@yahoo.com");
+const cambio2 = newCambio("1234", "9383");
