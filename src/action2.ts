@@ -145,6 +145,39 @@ class AccionEnvioMensaje extends Accion {
     }
 }
 
+class Historial {
+    acciones: Accion[] = []
+    
+    // Agregar una nueva acción al historial
+    agregarAccion(accion: Accion):void {
+        this.acciones.push(accion);
+    }
+    // Eliminar una accion del historial
+    eliminarAccionPorID(id: string): void {
+        const index = this.acciones.findIndex(accion => accion.id === id);
+        if (index !== -1) {
+            this.acciones.splice(index, 1);
+        }
+        else
+            console.log(`Accion con ID: ${id} no encontrado`);
+    }
+    // Vaciar el historial
+    eliminarTodo(): void {
+        this.acciones.length = 0;
+    }
+    // Mostrar la historia
+    mostrarHistorial(): void {
+        if (this.acciones.length === 0) {
+            console.log("No hay acciones en el historial");
+        }
+        else {
+            console.log("Historial de acciones:")
+            this.acciones.forEach(accion => accion.mostrarDetalle());
+        }
+    }
+    
+}
+
 
 /* Test code */
 const inicio = new AccionInicioSesion("Session started", new Date("2025-04-12T09:00:00"), "Laptop")
@@ -165,4 +198,13 @@ compra.mostrarDetalle()
 
 const mensaje = new AccionEnvioMensaje("Usuario envió un mensaje", new Date("2024-08-31T13:00:00Z"), "admin@example.com", "Hola, necesito ayuda con mi cuenta.")
 mensaje.mostrarDetalle()
+
+const historial = new Historial()
+
+historial.agregarAccion(inicio)
+historial.agregarAccion(cierre)
+historial.agregarAccion(actualizacion)
+historial.agregarAccion(compra)
+historial.agregarAccion(mensaje) 
+historial.mostrarHistorial()
 
