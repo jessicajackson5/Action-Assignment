@@ -115,3 +115,6 @@ cierre.mostrarDetalle()
 const cambio1 = new Cambio("my_new_email@gmail.com", "my_old_email@yahoo.com")
 const cambio2 = new Cambio("1234", "9383")
 
+const actualizacion = new AccionActualizacionPerfil("Usuario actualizó su perfil", new Date("2025-04-12T12:00:00"), [cambio1, cambio2])
+actualizacion.mostrarDetalle()
+
